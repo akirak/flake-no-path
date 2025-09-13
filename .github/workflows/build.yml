@@ -12,15 +12,15 @@ jobs:
 
     steps:
 
-    - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4
+    - uses: actions/checkout@08c6903cd8c0fde910a37f88322edcfb5dd907a8 # v5
 
-    - uses: cachix/install-nix-action@17fe5fb4a23ad6cbbe47d6b3f359611ad276644c # v31
+    - uses: cachix/install-nix-action@7be5dee1421f63d07e71ce6e0a9f8a4b07c2a487 # v31
 
     - run: nix build '.#image'
 
     - run: docker load < result
 
-    - uses: docker/login-action@74a5d142397b4f367a81961eba4e8cd7edddf772 # v3
+    - uses: docker/login-action@184bdaa0721073962dff0199f1fb9940f07167d1 # v3
       with:
         registry: ghcr.io
         username: ${{ github.actor }}
